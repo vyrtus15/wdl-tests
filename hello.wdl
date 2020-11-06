@@ -7,6 +7,9 @@ task hello {
   output {
     File response = stdout()
   }
+  runtime {
+    docker: "ubuntu:latest"
+  }
 }
 
 workflow test {
