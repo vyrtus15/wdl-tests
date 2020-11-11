@@ -1,3 +1,5 @@
+import imports/imported-task.wdl as importedTasks
+
 task hello {
   String name
 
@@ -14,4 +16,5 @@ task hello {
 
 workflow test {
   call hello
+  call importedTasks.bye
 }
