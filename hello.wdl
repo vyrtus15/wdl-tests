@@ -1,4 +1,4 @@
-import imports/imported-task.wdl as importedTasks
+import "imports/imported-task.wdl" as importedTasks
 
 task hello {
   String name
