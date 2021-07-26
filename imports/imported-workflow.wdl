@@ -8,7 +8,6 @@ task hello {
   }
   output {
     String salutation = read_string(stdout())
-    File response = stdout()
   }
 }
 
@@ -16,8 +15,8 @@ workflow wf_hello {
   String wf_hello_input
   
   call hello {input: addressee = wf_hello_input }
-  
+
   output {
-    String salutation = hello.salutation
+    File result = hello.salutation
   }
 }
