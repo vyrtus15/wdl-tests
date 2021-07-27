@@ -7,7 +7,7 @@ task hello {
       docker: "ubuntu:latest"
   }
   output {
-    String salutation = read_string(stdout())
+    File response = stdout()
   }
 }
 
@@ -16,7 +16,4 @@ workflow wf_hello {
   
   call hello {input: addressee = wf_hello_input }
 
-  output {
-    String salutation = hello.salutation
-  }
 }

@@ -56,8 +56,4 @@ workflow test {
   call number
   call greeter
   call importedWorkflow.wf_hello { input: wf_hello_input = wf_hello_in }
-  output {
-    File response = wf_hello.salutation
-  }
-
 }
