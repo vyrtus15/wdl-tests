@@ -57,7 +57,4 @@ workflow test {
   call greeter
   call importedWorkflow.wf_hello { input: wf_hello_input = wf_hello_in }
 
-  output {
-    File wf_hello_result = wf_hello.result 
-  }
 }
