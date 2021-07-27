@@ -1,0 +1,36 @@
+#!/bin/bash
+
+cd /cromwell-executions/test/90a6e8c4-d279-4025-8bec-6cd46ab7227c/call-hello/execution
+tmpDir=$(mkdir -p "/cromwell-executions/test/90a6e8c4-d279-4025-8bec-6cd46ab7227c/call-hello/tmp.05b88079" && echo "/cromwell-executions/test/90a6e8c4-d279-4025-8bec-6cd46ab7227c/call-hello/tmp.05b88079")
+chmod 777 "$tmpDir"
+export _JAVA_OPTIONS=-Djava.io.tmpdir="$tmpDir"
+export TMPDIR="$tmpDir"
+export HOME="$HOME"
+(
+cd /cromwell-executions/test/90a6e8c4-d279-4025-8bec-6cd46ab7227c/call-hello/execution
+
+)
+out90a6e8c4="${tmpDir}/out.$$" err90a6e8c4="${tmpDir}/err.$$"
+mkfifo "$out90a6e8c4" "$err90a6e8c4"
+trap 'rm "$out90a6e8c4" "$err90a6e8c4"' EXIT
+tee '/cromwell-executions/test/90a6e8c4-d279-4025-8bec-6cd46ab7227c/call-hello/execution/stdout' < "$out90a6e8c4" &
+tee '/cromwell-executions/test/90a6e8c4-d279-4025-8bec-6cd46ab7227c/call-hello/execution/stderr' < "$err90a6e8c4" >&2 &
+(
+cd /cromwell-executions/test/90a6e8c4-d279-4025-8bec-6cd46ab7227c/call-hello/execution
+
+
+echo 'Hello World!'
+)  > "$out90a6e8c4" 2> "$err90a6e8c4"
+echo $? > /cromwell-executions/test/90a6e8c4-d279-4025-8bec-6cd46ab7227c/call-hello/execution/rc.tmp
+(
+# add a .file in every empty directory to facilitate directory delocalization on the cloud
+cd /cromwell-executions/test/90a6e8c4-d279-4025-8bec-6cd46ab7227c/call-hello/execution
+find . -type d -exec sh -c '[ -z "$(ls -A '"'"'{}'"'"')" ] && touch '"'"'{}'"'"'/.file' \;
+)
+(
+cd /cromwell-executions/test/90a6e8c4-d279-4025-8bec-6cd46ab7227c/call-hello/execution
+sync
+
+
+)
+mv /cromwell-executions/test/90a6e8c4-d279-4025-8bec-6cd46ab7227c/call-hello/execution/rc.tmp /cromwell-executions/test/90a6e8c4-d279-4025-8bec-6cd46ab7227c/call-hello/execution/rc

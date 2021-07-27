@@ -17,6 +17,6 @@ workflow wf_hello {
   call hello {input: addressee = wf_hello_input }
 
   output {
-    File result = hello.salutation
+    String salutation = hello.salutation
   }
 }
