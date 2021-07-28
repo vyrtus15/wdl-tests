@@ -1,7 +1,7 @@
 import "imports/imported-task.wdl" as importedTasks
 
 task hello {
-  String name
+  Int name
 
   command {
     echo 'Hello ${name}!'
