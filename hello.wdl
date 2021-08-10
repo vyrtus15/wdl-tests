@@ -50,6 +50,8 @@ task greeter {
 
 workflow test {
   String wf_hello_in
+  Array[String] arrayTest
+  Map[String, String] mapTest
 
   call hello
   call importedTasks.bye
