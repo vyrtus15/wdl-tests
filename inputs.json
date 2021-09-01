@@ -1,4 +1,4 @@
 {
   "test.hello.name": "World",
-  "test.bye.nameTwo": "Resus"
+  "test.hello.preCommand": "echo precommand"
 }
