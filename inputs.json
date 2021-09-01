@@ -1,4 +1,4 @@
 {
   "test.hello.name": "World",
-  "test.hello.preCommand": "echo precommand"
+  "test.docker_pull.docker_image": "121296702210.dkr.ecr.eu-west-2.amazonaws.com/eva/bwa:latest"
 }
