@@ -1,19 +1,5 @@
 version 1.0
 
-
-task docker_pull {
-input {
-  String docker_image
-}
-
-command {
-  docker pull ~{docker_image}
-}
-output {
-  File response = stdout()
-  }
-}
-
 task hello {
 input {
   String name
@@ -32,6 +18,5 @@ input {
 }
 
 workflow test {
-  call docker_pull
   call hello
 }
