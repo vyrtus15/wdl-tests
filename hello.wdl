@@ -13,7 +13,7 @@ input {
     File response = stdout()
   }
   runtime {
-    docker: "121296702210.dkr.ecr.eu-west-2.amazonaws.com/eva/bwa:latest"
+    docker: "public.ecr.aws/ubuntu/ubuntu:18.04"
   }
 }
 
