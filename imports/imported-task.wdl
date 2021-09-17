@@ -1,8 +1,11 @@
+version 1.0
 task bye {
-  String nameTwo  
+  input{
+    String nameTwo
+  }  
 
   command {
-    echo "Bye bye ${nameTwo}!"
+    echo "Bye bye ~{nameTwo}!"
   }
   output {
     File response = stdout()

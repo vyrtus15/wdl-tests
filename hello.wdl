@@ -3,10 +3,11 @@ import "imports/imported-task.wdl" as importedTasks
 import "imports/imported-workflow.wdl" as importedWorkflow
 
 task hello {
-  String name
-
+  input {
+    String name
+  }
   command {
-    echo 'Hello ${name}!'
+    echo 'Hello ~{name}!'
   }
   output {
     File response = stdout()
@@ -17,10 +18,12 @@ task hello {
 }
 
 task number {
-  Int x
+  input{
+    Int x
+  }
 	
   command{
-    echo ${x}
+    echo ~{x}
   }
 
   output {
@@ -33,11 +36,13 @@ task number {
 }
 
 task greeter {
-  Boolean morning
-  String greeting = "good " + if morning then "morning" else "afternoon"
+  input{
+    Boolean morning
+    String greeting = "good " + if morning then "morning" else "afternoon"
+  }
 
   command {
-    echo ${greeting}
+    echo ~{greeting}
   }
 
   output {
@@ -50,9 +55,11 @@ task greeter {
 }
 
 workflow test {
-  String wf_hello_in
-  Array[String] arrayTest
-  Map[String, String] mapTest
+  input{
+    String wf_hello_in
+    Array[String] arrayTest
+    Map[String, String] mapTest
+  }
 
   call hello
   call importedTasks.bye

@@ -1,7 +1,11 @@
+version 1.0
 task hello {
-  String addressee
+  input{
+    String addressee
+  }
+
   command {
-    echo "Hello ${addressee}!"
+    echo "Hello ~{addressee}!"
   }
   runtime {
       docker: "ubuntu:latest"
@@ -12,7 +16,9 @@ task hello {
 }
 
 workflow wf_hello {
-  String wf_hello_input
+  input{
+    String wf_hello_input
+  }
   
   call hello {input: addressee = wf_hello_input }
 
