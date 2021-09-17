@@ -1,3 +1,4 @@
+version 1.0
 import "imports/imported-task.wdl" as importedTasks
 import "imports/imported-workflow.wdl" as importedWorkflow
 
