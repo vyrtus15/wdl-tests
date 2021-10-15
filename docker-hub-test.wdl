@@ -3,12 +3,12 @@ workflow dockerTest {
 }
 
 task dockerPullRm {
-  command: {
+  command <<<
     count=300
     for i in $(seq $count); do 
       docker pull hello-world && docker rmi hello-world:latest 
     done 
-  }
+  >>>
   
   runtime {
     docker: "ubuntu:latest"
