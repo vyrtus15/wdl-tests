@@ -11,7 +11,7 @@ task hello {
     File response = stdout()
   }
   runtime {
-    docker: "tiagofilipe12/test-private"
+    docker: "tiagofilipe12/test-private:18.10"
   }
 }
 
