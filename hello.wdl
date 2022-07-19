@@ -4,9 +4,9 @@ task hello {
   input {
     String name
   }
-  command {
-    echo "Hello ~{name}"
-  }
+  command <<<
+    echo Hello ~{name}
+  >>>
   output {
     File response = stdout()
   }
