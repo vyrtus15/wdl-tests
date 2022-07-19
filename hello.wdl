@@ -5,7 +5,7 @@ task hello {
     String name
   }
   command {
-    echo 'Hello ~{name}!'
+    echo "Hello ~{name}"
   }
   output {
     File response = stdout()
