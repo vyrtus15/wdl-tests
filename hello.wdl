@@ -11,7 +11,7 @@ task hello {
     File response = stdout()
   }
   runtime {
-    docker: "942344369036.dkr.ecr.eu-west-1.amazonaws.com/lifebit-platform/nf-config-parser:master"
+    docker: "tiagofilipe12/test-private"
   }
 }
 
