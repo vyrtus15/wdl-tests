@@ -11,7 +11,7 @@ task hello {
     File response = stdout()
   }
   runtime {
-    docker: "public.ecr.aws/ubuntu/ubuntu:20.04_stable"
+    docker: "953428508787.dkr.ecr.eu-west-1.amazonaws.com/private-repo:18.10"
   }
 }
 
