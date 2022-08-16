@@ -11,7 +11,7 @@ task hello {
     File response = stdout()
   }
   runtime {
-    docker: "461720209515.dkr.ecr.eu-west-1.amazonaws.com/private-repo-rp:latest"
+    docker: "953428508787.dkr.ecr.eu-west-1.amazonaws.com/private-repo:18.10"
   }
 }
 
