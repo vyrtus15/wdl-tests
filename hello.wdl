@@ -11,7 +11,7 @@ task hello {
     File response = stdout()
   }
   runtime {
-    docker: "ubuntu:18.10"
+    docker: "public.ecr.aws/ubuntu/ubuntu:18.04_stable"
   }
 }
 
